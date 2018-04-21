@@ -1,0 +1,2 @@
+module NotifyUsersHelper
+end

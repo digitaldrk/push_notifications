@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="jumbotron">
+    <div class="col-sm-8 mx-auto">
+      <h1>Number of Subscriptions so far: <%= @subscriptions %></h1>
+      <%= form_with url: notify_users_path do |form| %>
+        <%= form.text_field :title %>
+        <%= form.text_field :body %>
+        <%= form.submit %>
+      <% end %>
+      <p>
+        <a class="btn btn-primary" href="../../components/navbar/" role="button">View navbar docs »</a>
+      </p>
+    </div>
+  </div>
+</div>
