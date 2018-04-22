@@ -8,12 +8,6 @@ class NotifyUsersController < ApplicationController
   private
 
   def send_the_message(subscription, params)
-    # message = {
-    #   title: params[:title],
-    #   body: params[:body],
-    #   icon: 'http://www.clker.com/cliparts/1/0/9/e/1487324295866254597fire-vector-icon-png-27.med.png'
-    # }
-
     Webpush.payload_send(
       endpoint: subscription.endpoint,
       message: params[:body],
@@ -25,5 +19,7 @@ class NotifyUsersController < ApplicationController
         private_key: ENV['VAPID_PRIVATE']
       }
     )
+  rescue Webpush::InvalidSubscription => e
+    puts "this is the error: #{e}"
   end
 end
