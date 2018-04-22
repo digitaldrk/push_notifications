@@ -10,6 +10,7 @@ class NotifyUsersController < ApplicationController
   def send_the_message(subscription, params)
     Webpush.payload_send(
       endpoint: subscription.endpoint,
+      title: params[:title],
       message: params[:body],
       p256dh: subscription.p256dh,
       auth: subscription.auth,

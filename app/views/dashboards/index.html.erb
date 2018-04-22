@@ -3,13 +3,14 @@
     <div class="col-sm-8 mx-auto">
       <h1>Number of Subscriptions so far: <%= @subscriptions %></h1>
       <%= form_with url: notify_users_path do |form| %>
-        <%= form.text_field :title %>
-        <%= form.text_field :body %>
-        <%= form.submit %>
+      <div class="form-group">
+        <%= form.text_field :title, placeholder: 'Add a title here', class: 'form-control form-contol-lg' %>
+      </div>
+      <div class="form-group">
+        <%= form.text_field :body, placeholder: 'Add a body here', class: 'form-control form-contol-lg' %>
+      </div>
+        <%= form.submit 'Send the message to all of the people', class: 'btn btn-primary' %>
       <% end %>
-      <p>
-        <a class="btn btn-primary" href="../../components/navbar/" role="button">View navbar docs »</a>
-      </p>
     </div>
   </div>
 </div>
