@@ -9,9 +9,8 @@ class NotifyUsersController < ApplicationController
 
   def send_the_message(subscription)
     Webpush.payload_send(
-      endpoint: subscription.endpoint,
-      title: params[:title],
       message: build_message_object,
+      endpoint: subscription.endpoint,
       p256dh: subscription.p256dh,
       auth: subscription.auth,
       vapid: {
@@ -28,7 +27,8 @@ class NotifyUsersController < ApplicationController
     {
       title: params[:title],
       body: params[:body],
-      icon: 'https://goo.gl/G6Nofu'
+      icon: 'https://goo.gl/G6Nofu',
+      link: params[:link]
     }.to_json
   end
 end
