@@ -16,7 +16,8 @@ class NotifyUsersController < ApplicationController
       vapid: {
         subject: 'mailto:derek@digitalderek.com',
         public_key: ENV['VAPID_PUBLIC'],
-        private_key: ENV['VAPID_PRIVATE']
+        private_key: ENV['VAPID_PRIVATE'],
+        expiration: 12 * 60 * 60
       }
     )
   rescue Webpush::InvalidSubscription => e
