@@ -9,6 +9,8 @@
 .env
 .DS_Store
 
+**/.idea/
+
 # Ignore all logfiles and tempfiles.
 /log/*
 /tmp/*
