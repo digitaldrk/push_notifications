@@ -1,6 +1,11 @@
 class SubscriptionsController < ApplicationController
   skip_before_action :verify_authenticity_token, only: [:create]
 
+  def index
+    @subscriptions = Subscription.all
+    render json: @subscriptions
+  end
+
   def create
     formatted = format_subscription_params(params.to_unsafe_h.deep_symbolize_keys)
     subscription = Subscription.new(formatted)
